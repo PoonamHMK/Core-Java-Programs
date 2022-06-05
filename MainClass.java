@@ -1,35 +1,45 @@
-//Single inheritance
-package inheritancejava;
+package oops.poonam.com;
 
-class A{    //super class
-	int i;   //instance variable
-	A(){    //constructor
-		i=10;
-		System.out.println("i=" +i);
-		System.out.println("Constructor of parent class A");
+import java.util.Scanner;
+
+class Student{
+	//called instance variable
+			String name;
+            int sid;
+			float fees;
+			
+			void input() {
+				Scanner sc=new Scanner(System.in);
+				System.out.println("Enter a name");
+				name=sc.nextLine();
+				
+				System.out.println("Enter a student id");
+				sid=sc.nextInt();
+				System.out.println("Enter fees");
+				fees=sc.nextFloat();
+			
+			}
+			void display() {
+				System.out.println("name="+name);
+				System.out.println("id="+sid);
+				System.out.println("fees="+fees);
+			}
+		}
+
+	
+	public class MainClass {
+	
+		public static void main(String[] args) {
+			 System.out.println("Main");
+		         //local variable
+		     Student sob=new Student();
+		     System.out.println("id="+sob.sid);
+		     System.out.println("name="+sob.name);
+		     System.out.println("fees"+sob.fees);
 		
-	}
-}
-   class B extends A{  //sub class
-	   int j;
-	   B(){
-		  j=30;
-			System.out.println("j = " +j);
-
-		  System.out.println("Constructor of parent class B");
-	   }
-	   void add() {
-		   int s=i+j;
-		   System.out.println("sum = "+s);
-	   }
-   }
-   
-   public class MainClass {
-     public static void main(String[] args) {
-    	 B ob=new B();  //object of sub class
-    	 ob.add();
-		
-
+		     sob.input();       //function
+		     sob.display();    //calling member function
+		        
 	}
 
 }

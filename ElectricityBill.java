@@ -1,4 +1,4 @@
-package poonam.com;
+package pkg.string;
 
 import java.util.Scanner;
 
@@ -6,24 +6,43 @@ public class ElectricityBill {
 
 	public static void main(String[] args) {
 		float units;
-		double fixed_rate=350,bill_payable;
+		double amount;
+		double fixedrate=350.00;
+		double surcharge=0;
+		
 		Scanner sc=new Scanner(System.in);
-		System.out.println("Enter the number of units");
-		units=sc.nextLong();
-		if(units<100) {
-			bill_payable=units*1.50;
+		System.out.println("Enter customer name");
+		String name=sc.next();
+		System.out.println("Enter number of units");
+		units=sc.nextFloat();
+		if(units<0)
+		{
+			
+			System.out.println("Program is terminated because unit is negative");
+			System.exit(0);
 		}
-		else if(units>=101 && units<=150) {
-			bill_payable=100*1.50+(units-100)*2.00;
+		if(units>0 && units <=100)
+		{
+			amount=units*2.0f;
 		}
-		else if(units>=151 && units<=250) {
-			bill_payable=100*1.50+50*2.00+(units-150)*2.50;
+		else if(units>100 && units<=300)
+		{
+			amount=100*2.0f+(units-100)*3.0f;
 		}
-		else {
-			bill_payable=100*1.50+50*2.00+100*2.50+(units-250)*4.00;
-		}
-          System.out.println("Total bill amount is "+(bill_payable+fixed_rate));		
+		else
+		{
+			amount=100*2.0f+200*3.0f+300*5.0f;
+			surcharge=(amount*2.5f)/100;
 
+		}
+		System.out.println("Customer Name : "+name);
+		System.out.println("Bill Amount is : "+amount);
+		System.out.println("Surcharge is : "+surcharge);
+ 
 	}
+	
 
 }
+	
+
+
